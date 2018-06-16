@@ -23,8 +23,8 @@ public class StringStackTest
      * - assertTrue to check it's empty
      */
     @Test
-    public void testIsEmpty() throws Exception
-    {
+    public void testIsEmpty() throws Exception {
+        Assert.assertTrue(s.isEmpty());
     }
     
     /**
@@ -34,8 +34,9 @@ public class StringStackTest
      * - assertFalse to check it's not empty
      */
     @Test
-    public void testIsNotEmpty() throws Exception
-    {
+    public void testIsNotEmpty() throws Exception {
+        s.push("Mein lustiges Testitem");
+        Assert.assertFalse(s.isEmpty());
     }
 
     /**
@@ -49,12 +50,31 @@ public class StringStackTest
      * @throws Exception 
      */
     @Test
-    public void testPushPop() throws Exception
-    {
+    public void testPushPop() throws Exception {
+        s.push("Mein zweites lustiges Testitem");
+        s.push("Mein drittes lustiges Testitem");
+
+        String exp = s.pop();
+        String exp2 = s.pop();
+
+        Assert.assertEquals(exp, "Mein drittes lustiges Testitem");
+        Assert.assertEquals(exp2, "Mein zweites lustiges Testitem");
+        Assert.assertTrue(s.isEmpty());
     }
     
     /**
      * Feel Free to insert other test cases for the String Stack Implementation !!!
      */
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testStringStackThrowExceptionWhenCapacityIsLowerNull() {
+        s = new StringStack(-2);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testPopThrowExceptionWhenElementCountIsNull() throws Exception {
+        s.pop();
+    }
+
     
 }
