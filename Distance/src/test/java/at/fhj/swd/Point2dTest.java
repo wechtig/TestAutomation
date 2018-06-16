@@ -7,13 +7,13 @@ import org.junit.Test;
 
 public class Point2dTest {
 
-	private Point2d p1;
-	private Point2d p2;
+	private at.fhj.swd.Point2d p1;
+	private at.fhj.swd.Point2d p2;
 
 	@Before
 	public void setup(){
-		p1 = new Point2d(1,1);
-		p2 = new Point2d(5,4);
+		p1 = new at.fhj.swd.Point2d(1,1);
+		p2 = new at.fhj.swd.Point2d(5,4);
 	}
 
 	@Test
